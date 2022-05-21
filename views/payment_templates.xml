@@ -3,18 +3,21 @@
 
     <template id="checkout" inherit_id="payment.checkout">
         <xpath expr="." position="inside">
-            <!-- As the following link does not end with '.js', it's not loaded when
-                 placed in __manifest__.py. The following declaration fix this problem -->
+           
             <script type="text/javascript" src="https://js.paystack.co/v1/inline.js"></script>
         </xpath>
     </template>
 
     <template id="manage" inherit_id="payment.manage">
         <xpath expr="." position="inside">
-            <!-- As the following link does not end with '.js', it's not loaded when
-                 placed in __manifest__.py. The following declaration fix this problem -->
+           
             <script type="text/javascript" src="https://js.paystack.co/v1/inline.js"></script>
         </xpath>
     </template>
+
+    <template id="paystack_form">
+            <!-- Paystack generates a new payment link for each transaction -->
+            <form t-att-action="api_url" method="post"></form>
+        </template>
 
 </odoo>
